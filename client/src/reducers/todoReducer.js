@@ -1,4 +1,4 @@
-import { ADD_TODO, ON_CHANGE, TOGGLE_COMPLETE } from "../actions/types";
+import { ADD_TODO, ON_CHANGE, TOGGLE_COMPLETED } from "../actions/types";
 
 export const initialState = {
   todos: [
@@ -23,7 +23,8 @@ export const todoReducer = (state = initialState, { type, payload }) => {
     case ADD_TODO:
       const newTodo = { task: payload, id: Date.now() };
       return { ...state, todos: [...state.todos, newTodo], todo: "" };
-    case TOGGLE_COMPLETE:
+    case TOGGLE_COMPLETED:
+      console.log("heyyyyyyy ya");
       return {
         ...state,
         todos: state.todos.map(todo => {

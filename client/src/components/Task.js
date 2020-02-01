@@ -1,9 +1,18 @@
 import React from "react";
 
 const Task = props => {
-  const { todo } = props;
+  const { todo, toggleCompleted } = props;
 
-  return <p>{todo.task}</p>;
+  return (
+    <>
+      {todo.completed ? (
+        <p className="line-through">{todo.task}</p>
+      ) : (
+        <p>{todo.task}</p>
+      )}
+      <button onClick={() => toggleCompleted}>Complete!</button>
+    </>
+  );
 };
 
 export default Task;
