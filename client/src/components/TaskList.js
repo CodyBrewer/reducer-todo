@@ -22,12 +22,25 @@ const TaskList = () => {
     });
   };
 
+  const toggleCompleted = (id, complete) => e => {
+    e.preventDefault();
+    dispatch({
+      type: "TOGGLE_COMPLETED",
+      payload: { id, complete }
+    });
+  };
+
   return (
     <div>
       {todos.map(todo => (
         <Task key={todo.id} todo={todo} />
       ))}
-      <TaskForm todo={todo} onTodoChange={onTodoChange} addTodo={addTodo} />
+      <TaskForm
+        todo={todo}
+        onTodoChange={onTodoChange}
+        addTodo={addTodo}
+        toggleCompleted={toggleCompleted}
+      />
     </div>
   );
 };
