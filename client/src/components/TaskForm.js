@@ -1,10 +1,10 @@
 import React from "react";
 
 const TaskForm = props => {
-  const { onTodoChange, todo } = props;
+  const { todo, onTodoChange, addTodo } = props;
 
   return (
-    <form>
+    <form onSubmit={addTodo}>
       <label htmlFor="addTodo">New Todo</label>
       <input
         type="text"

@@ -21,7 +21,7 @@ export const todoReducer = (state = initialState, { type, payload }) => {
     case ON_CHANGE:
       return { ...state, ...payload };
     case ADD_TODO:
-      const newTodo = { item: payload, id: Date.now() };
+      const newTodo = { task: payload, id: Date.now() };
       return { ...state, todos: [...state.todos, newTodo], todo: "" };
     default:
       return state;

@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import { initialState, todoReducer } from "../reducers/todoReducer";
 import Task from "./Task";
 import TaskForm from "./TaskForm";
-import { ON_CHANGE } from "../actions/types";
+import { ON_CHANGE, ADD_TODO } from "../actions/types";
 
 const TaskList = () => {
   const [{ todo, todos }, dispatch] = useReducer(todoReducer, initialState);
@@ -14,12 +14,20 @@ const TaskList = () => {
     });
   };
 
+  const addTodo = e => {
+    e.preventDefault();
+    dispatch({
+      type: ADD_TODO,
+      payload: todo
+    });
+  };
+
   return (
     <div>
       {todos.map(todo => (
         <Task key={todo.id} todo={todo} />
       ))}
-      <TaskForm onTodoChange={onTodoChange} todo={todo} />
+      <TaskForm todo={todo} onTodoChange={onTodoChange} addTodo={addTodo} />
     </div>
   );
 };
