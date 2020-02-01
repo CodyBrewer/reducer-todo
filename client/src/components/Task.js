@@ -10,7 +10,7 @@ const Task = props => {
       ) : (
         <p>{todo.task}</p>
       )}
-      <button onClick={() => toggleCompleted}>Complete!</button>
+      <button onClick={toggleCompleted(todo.id)}>Complete!</button>
     </>
   );
 };
