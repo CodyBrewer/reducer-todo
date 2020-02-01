@@ -14,7 +14,7 @@ export const initialState = {
   todo: ""
 };
 
-export default (state = initialState, { type, payload }) => {
+export const todoReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     default:
       return state;
