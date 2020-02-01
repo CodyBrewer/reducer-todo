@@ -24,7 +24,6 @@ export const todoReducer = (state = initialState, { type, payload }) => {
       const newTodo = { task: payload, id: Date.now() };
       return { ...state, todos: [...state.todos, newTodo], todo: "" };
     case TOGGLE_COMPLETED:
-      console.log("heyyyyyyy ya");
       return {
         ...state,
         todos: state.todos.map(todo => {
