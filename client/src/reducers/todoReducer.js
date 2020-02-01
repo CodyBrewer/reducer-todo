@@ -1,4 +1,9 @@
-import { ADD_TODO, ON_CHANGE, TOGGLE_COMPLETED } from "../actions/types";
+import {
+  ADD_TODO,
+  ON_CHANGE,
+  TOGGLE_COMPLETED,
+  CLEAR_COMPLETED
+} from "../actions/types";
 
 export const initialState = {
   todos: [
@@ -34,6 +39,13 @@ export const todoReducer = (state = initialState, { type, payload }) => {
             };
           }
           return todo;
+        })
+      };
+    case CLEAR_COMPLETED:
+      return {
+        ...state,
+        todos: state.todos.filter(todo => {
+          return !todo.completed ? todo : null;
         })
       };
     default:
